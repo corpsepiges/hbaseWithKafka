@@ -58,29 +58,29 @@ public class LowComsumer {
 		long readoffset = getLastOffset(consumer,a_topic,a_partition,OffsetRequest.EarliestTime(),clientName) ;
 		System.out.println("偏移量："+readoffset);
 		int numErrors = 0 ;
-		while (a_maxReads>0) {
-			if (consumer==null) {
-				consumer = new SimpleConsumer(leadBroker, a_port, 100000, 64*1024, clientName) ;
-			}
+//		while (a_maxReads>0) {
+//			if (consumer==null) {
+//				consumer = new SimpleConsumer(leadBroker, a_port, 100000, 64*1024, clientName) ;
+//			}
 			FetchRequest request = new FetchRequestBuilder().clientId(clientName).addFetch(a_topic, a_partition, readoffset, 100000).build() ;
 			FetchResponse fetchResponse = consumer.fetch(request) ;
 			
-			if (fetchResponse.hasError()) {
-				numErrors++ ;
-				short code = fetchResponse.errorCode(a_topic,a_partition) ;
-				System.out.println("Error fetching data from the brokers:"+leadBroker+"Reason:"+code);
-				if (numErrors>5) {
-					break ;
-				}
-				if (code == ErrorMapping.OffsetOutOfRangeCode()) {
-					readoffset = getLastOffset(consumer, a_topic, a_partition, OffsetRequest.LatestTime(), clientName) ;
-					continue ;
-				}
-				consumer.close();
-				consumer = null ;
-				leadBroker = findNewLeader(leadBroker,a_topic,a_partition,a_port) ;
-				continue ;
-			}
+//			if (fetchResponse.hasError()) {
+//				numErrors++ ;
+//				short code = fetchResponse.errorCode(a_topic,a_partition) ;
+//				System.out.println("Error fetching data from the brokers:"+leadBroker+"Reason:"+code);
+//				if (numErrors>5) {
+//					break ;
+//				}
+//				if (code == ErrorMapping.OffsetOutOfRangeCode()) {
+//					readoffset = getLastOffset(consumer, a_topic, a_partition, OffsetRequest.LatestTime(), clientName) ;
+//					continue ;
+//				}
+//				consumer.close();
+//				consumer = null ;
+//				leadBroker = findNewLeader(leadBroker,a_topic,a_partition,a_port) ;
+//				continue ;
+//			}
 			numErrors = 0 ;
 			long numRead = 0 ;
 			ByteBufferMessageSet bufferMessageSet = fetchResponse.messageSet(a_topic, a_partition) ;
@@ -94,7 +94,7 @@ public class LowComsumer {
 				payload.get(bytes) ;
 				System.out.println(String.valueOf(messageAndOffset.offset())+":"+Bytes.toString(bytes));
 				numRead++ ;
-				a_maxReads-- ;
+//				a_maxReads-- ;
 			}
 			if (numRead==0) {
 				try {
@@ -103,7 +103,7 @@ public class LowComsumer {
 					e.printStackTrace();
 				}
 			}
-		}
+//		}
 		if (consumer!=null) {
 			consumer.close();
 		}
@@ -150,6 +150,11 @@ public class LowComsumer {
 			return 0 ;
 		}
 		long[] offsets = response.offsets(topic, partition) ;
+		System.out.println("------------偏移量------------");
+		for (int i = 0; i < offsets.length; i++) {
+			System.out.println(offsets[i]);
+		}
+		System.out.println("------------偏移量------------");
 		return offsets[0] ;
 	}
 
@@ -171,6 +176,7 @@ public class LowComsumer {
 					for (int j = 0; j < metadata.size(); j++) {
 						TopicMetadata topicMetadata = metadata.get(j) ;
 						List<PartitionMetadata> partitionMetadatas = topicMetadata.partitionsMetadata() ;
+						System.out.println("一共"+partitionMetadatas.size()+"分区。");
 						for (int k = 0; k < partitionMetadatas.size(); k++) {
 							PartitionMetadata partitionMetadata = partitionMetadatas.get(k) ;
 							System.out.println("分区号："+partitionMetadata.partitionId());
@@ -206,7 +212,8 @@ public class LowComsumer {
 		LowComsumer comsumer = new LowComsumer() ;
 		long maxReads = 10 ;
 		String topic = KafkaConfig.TOPIC;
-		int partition = 1 ;
+		System.out.println("分区名为"+topic);
+		int partition = 0 ;
 		
 		String broker = KafkaConfig.BROKERLIST ;
 		String[] brokers = broker.split(",") ;

@@ -1,21 +1,20 @@
 package com.xz.kafka.highlevel;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Properties;
 
-import com.xz.config.KafkaConfig;
-
-import kafka.javaapi.producer.Producer;
-import kafka.producer.KeyedMessage;
 import kafka.producer.ProducerConfig;
+
+import com.xz.config.KafkaConfig;
 
 public class HighProducer {
 	public static void main(String[] args) {
 		Properties props = new Properties();
 		props.put("metadata.broker.list", KafkaConfig.BROKERLIST);
 		props.put("serializer.class", "kafka.serializer.StringEncoder");
+		//key 的序列化方式
+		//kafka.serializer.NullEncoder
+		//kafka.serializer.DefaultEncoder
+		//kafka.serializer.StringEncoder
 		props.put("key.serializer.class", "kafka.serializer.StringEncoder");
 		props.put("request.required.acks", "1");
 		ProducerConfig config = new ProducerConfig(props);
@@ -40,7 +39,7 @@ public class HighProducer {
 
 //		producer.close();
 */
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < 1; i++) {
 			HighProducerTask kafkaProducerTask = new HighProducerTask(topic, config) ;
 			Thread thread1 = new Thread(kafkaProducerTask) ;
 			thread1.start();

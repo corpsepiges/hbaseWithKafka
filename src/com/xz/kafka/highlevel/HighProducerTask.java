@@ -21,12 +21,12 @@ public class HighProducerTask implements Runnable {
 		Producer<String, String> producer = new Producer<String, String>(config);
 		Calendar calendar = Calendar.getInstance() ;
 		calendar.setTime( new Date() );
-		while (i<100000100) {
+		while (i<100000010) {
 			calendar.add(Calendar.MINUTE, -1);
 			String time = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").format(calendar.getTime()) ;
 			String msg = i + ":"+time+":"+i;
 			System.out.println(msg);
-			KeyedMessage<String, String> data = new KeyedMessage<String, String>(topic, msg);
+			KeyedMessage<String, String> data = new KeyedMessage<String, String>(topic,i+"", msg);
 			producer.send(data);
 			i++;
 		}

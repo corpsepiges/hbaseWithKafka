@@ -8,10 +8,11 @@ import kafka.admin.DeleteTopicCommand;
 
 public class Command {
 	public static void main(String[] args) {
-		String topic = "splits" ;
+		String topic = "split" ;
 		deletetopic(topic) ;
 		createtopic(topic);
 		addPartition(topic);
+		
 	}
 	private static void createtopic(String topic) {
 		String [] options = new String[]{
