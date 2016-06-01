@@ -30,6 +30,7 @@ public class HighProducerTask implements Runnable {
 			producer.send(data);
 			i++;
 		}
+		producer.close();
 	}
 
 }

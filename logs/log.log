@@ -200,3 +200,16 @@ java.net.ConnectException: Connection timed out: connect
 	at com.xz.kafka.highlevel.HighProducerTask.run(HighProducerTask.java:30)
 	at java.lang.Thread.run(Unknown Source)
 2016-06-01 20:50:21 INFO  [Thread-3] client.ClientUtils$: Fetching metadata from broker id:0,host:192.168.0.222,port:9092 with correlation id 0 for 1 topic(s) Set(splits)
+2016-06-01 20:54:59 INFO  [main] utils.VerifiableProperties: Verifying properties
+2016-06-01 20:54:59 INFO  [main] utils.VerifiableProperties: Property metadata.broker.list is overridden to 10.10.0.65:9092,10.10.0.66:9092,10.10.0.67:9092
+2016-06-01 20:54:59 INFO  [main] utils.VerifiableProperties: Property request.required.acks is overridden to 1
+2016-06-01 20:54:59 INFO  [main] utils.VerifiableProperties: Property key.serializer.class is overridden to kafka.serializer.StringEncoder
+2016-06-01 20:54:59 INFO  [main] utils.VerifiableProperties: Property serializer.class is overridden to kafka.serializer.StringEncoder
+2016-06-01 20:54:59 INFO  [Thread-1] client.ClientUtils$: Fetching metadata from broker id:0,host:10.10.0.65,port:9092 with correlation id 0 for 1 topic(s) Set(splits)
+2016-06-01 20:54:59 INFO  [Thread-1] producer.SyncProducer: Connected to 10.10.0.65:9092 for producing
+2016-06-01 20:54:59 INFO  [Thread-1] producer.SyncProducer: Disconnecting from 10.10.0.65:9092
+2016-06-01 20:55:00 INFO  [Thread-1] producer.SyncProducer: Connected to datanode2:9092 for producing
+2016-06-01 20:55:01 INFO  [Thread-3] client.ClientUtils$: Fetching metadata from broker id:1,host:10.10.0.66,port:9092 with correlation id 0 for 1 topic(s) Set(splits)
+2016-06-01 20:55:01 INFO  [Thread-3] producer.SyncProducer: Connected to 10.10.0.66:9092 for producing
+2016-06-01 20:55:01 INFO  [Thread-3] producer.SyncProducer: Disconnecting from 10.10.0.66:9092
+2016-06-01 20:55:01 INFO  [Thread-3] producer.SyncProducer: Connected to datanode3:9092 for producing
