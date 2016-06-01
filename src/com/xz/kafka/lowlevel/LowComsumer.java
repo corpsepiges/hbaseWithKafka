@@ -208,10 +208,12 @@ public class LowComsumer {
 		String topic = KafkaConfig.TOPIC;
 		int partition = 1 ;
 		
+		String broker = KafkaConfig.BROKERLIST ;
+		String[] brokers = broker.split(",") ;
 		List<String> seeds = new ArrayList<>() ;
-		seeds.add("192.168.0.222") ;
-		seeds.add("192.168.0.224") ;
-		seeds.add("192.168.0.225") ;
+		for (int i = 0; i < brokers.length; i++) {
+			seeds.add(brokers[i].split(":")[0]) ;
+		}
 		int port = 9092 ;
 		
 		try {

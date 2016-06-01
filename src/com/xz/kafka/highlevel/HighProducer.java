@@ -14,7 +14,7 @@ import kafka.producer.ProducerConfig;
 public class HighProducer {
 	public static void main(String[] args) {
 		Properties props = new Properties();
-		props.put("metadata.broker.list", "192.168.0.222:9092,192.168.0.224:9092,192.168.0.225:9092");
+		props.put("metadata.broker.list", KafkaConfig.BROKERLIST);
 		props.put("serializer.class", "kafka.serializer.StringEncoder");
 		props.put("key.serializer.class", "kafka.serializer.StringEncoder");
 		props.put("request.required.acks", "1");
