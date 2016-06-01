@@ -16,6 +16,8 @@ public class HighProducer {
 		//kafka.serializer.DefaultEncoder
 		//kafka.serializer.StringEncoder
 		props.put("key.serializer.class", "kafka.serializer.StringEncoder");
+		//自定义partition 集群方式
+		//props.put("partitioner.class", "com.xz.kafka.partitioner.MyPartitioner");
 		props.put("request.required.acks", "1");
 		ProducerConfig config = new ProducerConfig(props);
 
