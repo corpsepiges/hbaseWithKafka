@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- published at 2016-05-27 16:05:02 -->
+<Profiles>
+	<Weather>
+		<city>连云港</city>
+		<status1>小雨</status1>
+		<status2>小雨</status2>
+		<figure1>xiaoyu</figure1>
+		<figure2>xiaoyu</figure2>
+		<direction1>东北风</direction1>
+		<direction2>东风</direction2>
+		<power1>3-4</power1>
+		<power2>3-4</power2>
+		<temperature1>23</temperature1>
+		<temperature2>16</temperature2>
+		<ssd>6</ssd>
+		<tgd1>21</tgd1>
+		<tgd2>21</tgd2>
+		<zwx>1</zwx>
+		<ktk>4</ktk>
+		<pollution>2</pollution>
+		<xcz>5</xcz>
+		<zho></zho>
+		<diy></diy>
+		<fas></fas>
+		<chy>3</chy>
+		<zho_shuoming>暂无</zho_shuoming>
+		<diy_shuoming>暂无</diy_shuoming>
+		<fas_shuoming>暂无</fas_shuoming>
+		<chy_shuoming>单层薄衫、裤薄型棉衫、长裤、针织长袖衫、长袖T恤。薄型套装、牛仔衫裤、西服套装、薄型夹克
+		</chy_shuoming>
+		<pollution_l>良</pollution_l>
+		<zwx_l>最弱</zwx_l>
+		<ssd_l>温暖舒适</ssd_l>
+		<fas_l>暂无</fas_l>
+		<zho_l>暂无</zho_l>
+		<chy_l>单衣类</chy_l>
+		<ktk_l>不需要开启</ktk_l>
+		<xcz_l>不适宜</xcz_l>
+		<diy_l>暂无</diy_l>
+		<pollution_s>有利于空气污染物扩散</pollution_s>
+		<zwx_s>紫外线最弱</zwx_s>
+		<ssd_s>天气状况良好时，多到户外活动，并可适当增加户外活动时间。</ssd_s>
+		<ktk_s>不需要开启空调</ktk_s>
+		<xcz_s>洗车后当日有降水、大风或沙尘天气，不适宜洗车</xcz_s>
+		<gm>1</gm>
+		<gm_l>低发期</gm_l>
+		<gm_s>天气舒适，不易发生感冒；</gm_s>
+		<yd>5</yd>
+		<yd_l>不适宜</yd_l>
+		<yd_s>人们虽然感觉舒适，但是由于有雨，不适宜户外运动；</yd_s>
+		<savedate_weather>2016-05-27</savedate_weather>
+		<savedate_life>2016-05-27</savedate_life>
+		<savedate_zhishu>2016-05-27</savedate_zhishu>
+		<udatetime>2016-05-27 08:10:00</udatetime>
+	</Weather>
+</Profiles>
