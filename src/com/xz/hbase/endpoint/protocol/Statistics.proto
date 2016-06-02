@@ -1,6 +1,5 @@
 option java_package = "com.xz.hbase.endpoint.protocol";
 option java_outer_classname = "StatisticsProto";
-option java_generic_services = true;
 option optimize_for = SPEED;
 
 //count结构请求
